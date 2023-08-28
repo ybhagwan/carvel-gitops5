@@ -2,13 +2,13 @@
 apiVersion: packaging.carvel.dev/v1alpha1
 kind: PackageInstall
 metadata:
- name: app
+ name: where-for-dinner-search
 spec:
- serviceAccountName: <run-cluster-ns-sa> # ServiceAccount on run cluster with permissions to deploy Package, see "Set up run Cluster Namespaces"
+ serviceAccountName: default # ServiceAccount on run cluster with permissions to deploy Package, see "Set up run Cluster Namespaces"
  packageRef:
-   refName: app.default.tap # name of the Package
+   refName: where-for-dinner-search.default.tap # name of the Package
    versionSelection:
-     constraints: 20230321004057.0.0 # version of the Package
+     constraints: 20230828184435.0.0+build.190d139 # version of the Package
  values:
  - secretRef:
-     name: app-values # Secret created in previous step
+     name: where-for-dinner-search # Secret created in previous step
