@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Secret
+metadata:
+ name: app-values
+stringData:
+ values.yaml: |
+   ---
+   workload_name: app
+   replicas: 2
+   hostname: app.mycompany.com
