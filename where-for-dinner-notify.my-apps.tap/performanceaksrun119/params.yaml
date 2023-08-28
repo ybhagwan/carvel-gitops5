@@ -2,10 +2,8 @@
 apiVersion: v1
 kind: Secret
 metadata:
- name: app-values
+ name: where-for-dinner-notify
 stringData:
  values.yaml: |
    ---
-   workload_name: app
-   replicas: 2
-   hostname: app.mycompany.com
+   workload_name: where-for-dinner-notify
