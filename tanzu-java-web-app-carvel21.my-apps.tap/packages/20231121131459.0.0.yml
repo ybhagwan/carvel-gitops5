@@ -1,0 +1,33 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: tanzu-java-web-app-carvel21.my-apps.tap.20231121131459.0.0+build.ac352a6
+spec:
+  refName: tanzu-java-web-app-carvel21.my-apps.tap
+  version: 20231121131459.0.0+build.ac352a6
+  releaseNotes: |
+    Release v20231121131459.0.0+build.ac352a6 of package tanzu-java-web-app-carvel21.my-apps.tap
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: tapperf.azurecr.io/performanceautomation/tanzu-java-web-app-carvel21-my-apps-bundle@sha256:16c92c295474f46bd6f1c3530123b9011acd5b499faf1dcec14a4bfa19f05d69
+      template:
+      - ytt:
+          paths:
+          - .
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+      deploy:
+      - kapp: {}
+  valuesSchema:
+    openAPIv3:
+      type: object
+      additionalProperties: false
+      properties:
+        workload_name:
+          type: string
+          default: ""
+
