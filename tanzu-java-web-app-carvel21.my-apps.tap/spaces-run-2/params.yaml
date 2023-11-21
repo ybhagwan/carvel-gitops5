@@ -1,9 +1,0 @@
----
-apiVersion: v1
-kind: Secret
-metadata:
- name: tanzu-java-web-app-carvel21
-stringData:
- values.yaml: |
-   ---
-   workload_name: tanzu-java-web-app-carvel21
