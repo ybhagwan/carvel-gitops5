@@ -1,0 +1,70 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: where-for-dinner-crawler.my-apps.tap.20231129094738.0.0+build.5a678ea
+spec:
+  refName: where-for-dinner-crawler.my-apps.tap
+  version: 20231129094738.0.0+build.5a678ea
+  releaseNotes: |
+    Release v20231129094738.0.0+build.5a678ea of package where-for-dinner-crawler.my-apps.tap
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: tapperf.azurecr.io/performanceautomation/where-for-dinner-crawler-my-apps-bundle@sha256:7ed5306cacc3b0d027a9626ffc724a2b717ee6a068c7b3437ecda8f720c2d7c4
+      template:
+      - ytt:
+          paths:
+          - .
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+      deploy:
+      - kapp: {}
+  valuesSchema:
+    openAPIv3:
+      type: object
+      additionalProperties: false
+      properties:
+        workload_name:
+          title: Workload name
+          type: string
+          default: ""
+        replicas:
+          title: Replicas
+          type: integer
+          default: 1
+        port:
+          title: Port
+          type: integer
+          default: 8080
+        hostname:
+          title: Hostname
+          type: string
+          default: ""
+        cluster_issuer:
+          title: Cluster Issuer
+          type: string
+          default: tap-ingress-selfsigned
+        http_route:
+          type: object
+          additionalProperties: false
+          nullable: true
+          properties:
+            gateways:
+              type: array
+              items:
+                type: object
+                additionalProperties: false
+                properties:
+                  protocol:
+                    type: string
+                    default: ""
+                  name:
+                    type: string
+                    default: ""
+              default:
+              - protocol: https
+                name: default-gateway
+
