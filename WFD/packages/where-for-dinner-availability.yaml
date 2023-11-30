@@ -1,17 +1,17 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: where-for-dinner-availability.my-apps.tap.20231129094741.0.0
+  name: where-for-dinner-availability.my-apps.tap.20231130212607.0.0
 spec:
   refName: where-for-dinner-availability.my-apps.tap
-  version: 20231129094741.0.0
+  version: 20231130212607.0.0
   releaseNotes: |
-    Release v20231129094741.0.0 of package where-for-dinner-availability.my-apps.tap
+    Release v20231130212607.0.0 of package where-for-dinner-availability.my-apps.tap
   template:
     spec:
       fetch:
       - imgpkgBundle:
-          image: tapperf.azurecr.io/performanceautomation/where-for-dinner-availability-my-apps-bundle@sha256:38d2b8e80db5913617c70b8747eaa5144ab63aa83008996b0e9ec40d8fff260a
+          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-availability-my-apps-bundle@sha256:b4581b953e5a3ea5dd445bad9522cfbdbbb58f0a55b4b365e4340d414946dc7c
       template:
       - ytt:
           paths:
@@ -67,3 +67,4 @@ spec:
               default:
               - protocol: https
                 name: default-gateway
+

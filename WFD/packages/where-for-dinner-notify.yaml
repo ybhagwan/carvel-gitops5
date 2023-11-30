@@ -1,17 +1,17 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: where-for-dinner-notify.my-apps.tap.20231129094710.0.0
+  name: where-for-dinner-notify.my-apps.tap.20231130212533.0.0
 spec:
   refName: where-for-dinner-notify.my-apps.tap
-  version: 20231129094710.0.0
+  version: 20231130212533.0.0
   releaseNotes: |
-    Release v20231129094710.0.0 of package where-for-dinner-notify.my-apps.tap
+    Release v20231130212533.0.0 of package where-for-dinner-notify.my-apps.tap
   template:
     spec:
       fetch:
       - imgpkgBundle:
-          image: tapperf.azurecr.io/performanceautomation/where-for-dinner-notify-my-apps-bundle@sha256:6b2037f90da671b4d76259491e156d7d11f466a613f7f0c4bfbed737928bcf11
+          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-notify-my-apps-bundle@sha256:a8dc1583a0b003c57119d330fe7b12fc41691be1bbdf9fb6b71b9b52baf3b245
       template:
       - ytt:
           paths:
@@ -67,3 +67,4 @@ spec:
               default:
               - protocol: https
                 name: default-gateway
+

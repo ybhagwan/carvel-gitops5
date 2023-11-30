@@ -1,17 +1,17 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: where-for-dinner-search.my-apps.tap.20231129094701.0.0
+  name: where-for-dinner-search.my-apps.tap.20231130212511.0.0
 spec:
   refName: where-for-dinner-search.my-apps.tap
-  version: 20231129094701.0.0
+  version: 20231130212511.0.0
   releaseNotes: |
-    Release v20231129094701.0.0 of package where-for-dinner-search.my-apps.tap
+    Release v20231130212511.0.0 of package where-for-dinner-search.my-apps.tap
   template:
     spec:
       fetch:
       - imgpkgBundle:
-          image: tapperf.azurecr.io/performanceautomation/where-for-dinner-search-my-apps-bundle@sha256:80cd05ae7e9b94aeaf6822bd5f07c129eeab9fd79144fbcc25465abbae2c0ce6
+          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-search-my-apps-bundle@sha256:0e3700677c5621ae395d43897958314a29514dae2468966e4d1f20c489e0ac48
       template:
       - ytt:
           paths:
@@ -67,3 +67,4 @@ spec:
               default:
               - protocol: https
                 name: default-gateway
+
