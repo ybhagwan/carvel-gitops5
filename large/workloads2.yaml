@@ -139,7 +139,7 @@ spec:
       name: http
   env:
   - name: spring_profiles_active
-    value: crawler
+    value: crawler,redis
   - name: SPRING_RABBITMQ_SSL_ENABLED
     value: "true"
   serviceClaims:
@@ -148,6 +148,11 @@ spec:
       apiVersion: services.apps.tanzu.vmware.com/v1alpha1
       kind: ResourceClaim
       name: rmq-where-for-dinner
+  - name: redis
+    ref:
+      apiVersion: v1
+      kind: Secret
+      name: redis-where-for-dinner-redis-secret
   resources:
     requests:
       memory: 500M
