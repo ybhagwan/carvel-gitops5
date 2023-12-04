@@ -1,17 +1,17 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: where-for-dinner-availability.my-apps.tap.20231204091118.0.0
+  name: where-for-dinner-availability.my-apps.tap.20231204155251.0.0
 spec:
   refName: where-for-dinner-availability.my-apps.tap
-  version: 20231204091118.0.0
+  version: 20231204155251.0.0
   releaseNotes: |
-    Release v20231204091118.0.0 of package where-for-dinner-availability.my-apps.tap
+    Release v20231204155251.0.0 of package where-for-dinner-availability.my-apps.tap
   template:
     spec:
       fetch:
       - imgpkgBundle:
-          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-availability-my-apps-bundle@sha256:57c889f9898ab28893940642694001a69bef56975fd14e8f31e0b3fadde964f9
+          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-availability-my-apps-bundle@sha256:e3027b21a6ab06e9d59e51a15888a1f0cbaf6765a6f33e1f6470795e7c766290
       template:
       - ytt:
           paths:

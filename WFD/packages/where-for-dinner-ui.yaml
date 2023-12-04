@@ -1,12 +1,12 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: where-for-dinner-ui.my-apps.tap.20231130212539.0.0
+  name: where-for-dinner-ui.my-apps.tap.20231204091058.0.0
 spec:
   refName: where-for-dinner-ui.my-apps.tap
-  version: 20231130212539.0.0
+  version: 20231204091058.0.0
   releaseNotes: |
-    Release v20231130212539.0.0 of package where-for-dinner-ui.my-apps.tap
+    Release v20231204091058.0.0 of package where-for-dinner-ui.my-apps.tap
   template:
     spec:
       fetch:

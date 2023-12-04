@@ -1,17 +1,17 @@
 apiVersion: data.packaging.carvel.dev/v1alpha1
 kind: Package
 metadata:
-  name: where-for-dinner-search-proc.my-apps.tap.20231130212556.0.0
+  name: where-for-dinner-search-proc.my-apps.tap.20231204091042.0.0
 spec:
   refName: where-for-dinner-search-proc.my-apps.tap
-  version: 20231130212556.0.0
+  version: 20231204091042.0.0
   releaseNotes: |
-    Release v20231130212556.0.0 of package where-for-dinner-search-proc.my-apps.tap
+    Release v20231204091042.0.0 of package where-for-dinner-search-proc.my-apps.tap
   template:
     spec:
       fetch:
       - imgpkgBundle:
-          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-search-proc-my-apps-bundle@sha256:35791f57d257d2b026cd31471b4e003d4f150658cac46c3e51f29e216415d143
+          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-search-proc-my-apps-bundle@sha256:baa5110a49be40c037352c3387c6512c39ff584a63093374842a57f593519e17
       template:
       - ytt:
           paths:
