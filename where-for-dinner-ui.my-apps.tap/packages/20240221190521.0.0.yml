@@ -1,0 +1,70 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: where-for-dinner-ui.my-apps.tap.20240221190521.0.0+build.fe68638
+spec:
+  refName: where-for-dinner-ui.my-apps.tap
+  version: 20240221190521.0.0+build.fe68638
+  releaseNotes: |
+    Release v20240221190521.0.0+build.fe68638 of package where-for-dinner-ui.my-apps.tap
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-ui-my-apps-bundle@sha256:90c4ea46cc71460bc0d9baf4b8a5b08a7aa432a1241eee5c3601317c06f5ed50
+      template:
+      - ytt:
+          paths:
+          - .
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+      deploy:
+      - kapp: {}
+  valuesSchema:
+    openAPIv3:
+      type: object
+      additionalProperties: false
+      properties:
+        workload_name:
+          title: Workload name
+          type: string
+          default: ""
+        replicas:
+          title: Replicas
+          type: integer
+          default: 1
+        port:
+          title: Port
+          type: integer
+          default: 8080
+        hostname:
+          title: Hostname
+          type: string
+          default: ""
+        cluster_issuer:
+          title: Cluster Issuer
+          type: string
+          default: tap-ingress-selfsigned
+        http_route:
+          type: object
+          additionalProperties: false
+          nullable: true
+          properties:
+            gateways:
+              type: array
+              items:
+                type: object
+                additionalProperties: false
+                properties:
+                  protocol:
+                    type: string
+                    default: ""
+                  name:
+                    type: string
+                    default: ""
+              default:
+              - protocol: https
+                name: default-gateway
+
