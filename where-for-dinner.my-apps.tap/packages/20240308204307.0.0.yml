@@ -1,0 +1,33 @@
+apiVersion: data.packaging.carvel.dev/v1alpha1
+kind: Package
+metadata:
+  name: where-for-dinner.my-apps.tap.20240308204307.0.0+build.2f6b3b6
+spec:
+  refName: where-for-dinner.my-apps.tap
+  version: 20240308204307.0.0+build.2f6b3b6
+  releaseNotes: |
+    Release v20240308204307.0.0+build.2f6b3b6 of package where-for-dinner.my-apps.tap
+  template:
+    spec:
+      fetch:
+      - imgpkgBundle:
+          image: spacesdemo1.azurecr.io/demo1/where-for-dinner-my-apps-bundle@sha256:4c4b93568940992f3d0e6bdc3b8fb9386d4358ecffbf73ff4a963d41186bb563
+      template:
+      - ytt:
+          paths:
+          - .
+      - kbld:
+          paths:
+          - .imgpkg/images.yml
+          - '-'
+      deploy:
+      - kapp: {}
+  valuesSchema:
+    openAPIv3:
+      type: object
+      additionalProperties: false
+      properties:
+        workload_name:
+          type: string
+          default: ""
+
