@@ -12,7 +12,7 @@ spec:
   - group: gateway.networking.k8s.io
     kind: Gateway
     name: default-gateway
-    sectionName: http-wfd-aws-demo
+    sectionName: https-wfd-aws-demo
   rules:
   - backendRefs:
     - group: ""
